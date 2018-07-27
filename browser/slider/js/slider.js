@@ -17,7 +17,7 @@ setInterval(() => {
   img.src = imgSrc[index];
   index++;
 
-if (index > (imgSrc.length - 1)) {
-  index = 0;
-}
+  if (index > (imgSrc.length - 1)) {
+    index = 0;
+  }
 }, 5000);
