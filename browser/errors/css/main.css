@@ -130,6 +130,7 @@ input {
   font: bold 13px "helvetica";
   padding: 8px 15px;
   box-shadow: 0 3px 0 #2a2c2b;
+  cursor: pointer;
 }
 
 input:active,
