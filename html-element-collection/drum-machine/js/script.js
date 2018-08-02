@@ -5,6 +5,7 @@ const buttons = drumList.getElementsByClassName('drum-kit__drum');
 
 function playAudio() {
   const player = this.getElementsByTagName('audio')[0];
+  player.currentTime = 0;
   player.play();
 }
 
