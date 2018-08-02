@@ -15,7 +15,7 @@ let songNum = 0;
 player.src = changeSrc(audioList[songNum]);
 
 function changeSrc(songName) {
-  return 'mp3/' + songName + '.mp3';
+  return `mp3/${songName}.mp3`;
 }
 
 function playstate() {
@@ -53,7 +53,10 @@ function changeSong() {
 
   player.src = changeSrc(audioList[songNum]);
   songTitle.title = audioList[songNum];
-  playerWrap.classList.remove('play');
+
+  if (playerWrap.classList.contains('play')) {
+    player.play();
+  }
 }
 
 for (let btn of controls) {
