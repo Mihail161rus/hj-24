@@ -1,15 +1,11 @@
 'use strict';
 
+let totalPrice = 0;
+
 function addToCart(event) {
-  let price = event.target.dataset.price;
-  const totalProducts = document.querySelector('.cart #cart-count');
-  const totalPrice = document.querySelector('.cart #cart-total-price');
-
-
-  totalProducts.innerHTML++;
-  price++;
-  totalPrice.innerHTML = price;
-  console.log(totalProducts);
+  totalPrice += Number(event.target.dataset.price);
+  document.querySelector('.cart #cart-count').innerHTML++;
+  document.querySelector('.cart #cart-total-price').innerHTML = getPriceFormatted(totalPrice);
 }
 
 function init() {
