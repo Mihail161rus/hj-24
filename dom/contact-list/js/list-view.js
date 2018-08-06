@@ -33,6 +33,27 @@ function init() {
   container = document.getElementById('container');
   container.querySelector('.list-view').addEventListener('click', contactClick);
   container.querySelector('.back').addEventListener('click', backClick);
+  createContacts();
 }
 
 document.addEventListener('DOMContentLoaded', init);
+
+/*Решение задания*/
+
+function createContacts() {
+  const contacts = JSON.parse(loadContacts());
+  const itemList = container.querySelector('.contacts-list');
+  const item = container.querySelector('.contacts-list > li');
+
+  for (let contact of contacts) {
+    item.dataset.email = contact.email;
+    item.dataset.phone = contact.phone;
+    item.innerHTML = `<strong>${contact.name}</strong>`;
+
+    if (contacts.indexOf(contact) > 0) {
+      itemList.innerHTML += item.outerHTML;
+    } else {
+      itemList.innerHTML = item.outerHTML;
+    }
+  }
+}
