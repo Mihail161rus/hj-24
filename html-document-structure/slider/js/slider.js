@@ -58,7 +58,7 @@ function changeSlide(type) {
 
   if (activeSlide !== newActiveSlide) {
     if (activeSlide) {
-      activeSlide.classList.remove('slide-current');
+      activeSlide.classList.remove('slide-current'); 
     }
     newActiveSlide.classList.add('slide-current');
 
