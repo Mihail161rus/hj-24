@@ -18,7 +18,7 @@ function resizeCanvas() {
 }
 
 /**
- * Запускает рисование при вжатой кнопке мыши
+ * Запускает рисование при вжатой левой кнопке мыши
  * @param event
  */
 function startDraw(event) {
