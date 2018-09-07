@@ -8,7 +8,7 @@ let minY, minX, maxX, maxY;
 
 //Принудительно задаем высоту body, т.к. изначально она равна нулю
 body.style.height = '800px';
-body.style.border = '1px solid';
+body.style.border = '2px solid red';
 
 function dragStart(event) {
   if (event.target.classList.contains('logo')) {
