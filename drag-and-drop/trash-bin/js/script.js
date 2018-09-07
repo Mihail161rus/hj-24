@@ -1,13 +1,23 @@
 'use strict';
 
+const body = document.querySelector('body');
 let movedImg = null,
   shiftX = 0,
   shiftY = 0;
+let minY, minX, maxX, maxY;
+
+//Принудительно задаем высоту body, т.к. изначально она равна нулю
+body.style.height = '800px';
+body.style.border = '1px solid';
 
 function dragStart(event) {
   if (event.target.classList.contains('logo')) {
     event.preventDefault();
     movedImg = event.target;
+    minY = body.offsetTop;
+    minX = body.offsetLeft;
+    maxX = body.offsetLeft + body.offsetWidth - movedImg.offsetWidth;
+    maxY = body.offsetTop + body.offsetHeight - movedImg.offsetHeight;
 
     const bounds = movedImg.getBoundingClientRect();
     shiftX = ( bounds.right - bounds.left ) / 2;
@@ -23,8 +33,14 @@ function dragStart(event) {
 
 function drag(event) {
   if (movedImg) {
-    movedImg.style.left = event.pageX - shiftX + 'px';
-    movedImg.style.top = event.pageY - shiftY + 'px';
+    let x = event.pageX - shiftX;
+    let y = event.pageY - shiftY;
+    x = Math.min(x, maxX);
+    y = Math.min(y, maxY);
+    x = Math.max(x, minX);
+    y = Math.max(y, minY);
+    movedImg.style.left = x + 'px';
+    movedImg.style.top = y + 'px';
   }
 }
 
