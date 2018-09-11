@@ -2,7 +2,8 @@
 
 const leftEye = document.querySelector('.cat_position_for_left_eye');
 const rightEye = document.querySelector('.cat_position_for_right_eye');
-const bound = leftEye.getBoundingClientRect();
+const boundLeft = leftEye.getBoundingClientRect();
+const boundRight = rightEye.getBoundingClientRect();
 
 function moveEye(eye, val, position){
   if (position === 'left') {
@@ -31,6 +32,6 @@ function init(event, bound, eye) {
 }
 
 document.addEventListener('mousemove', (event) => {
-  init(event, bound, leftEye);
-  init(event, bound, rightEye);
+  init(event, boundLeft, leftEye);
+  init(event, boundRight, rightEye);
 });
